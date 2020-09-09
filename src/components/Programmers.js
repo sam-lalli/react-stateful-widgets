@@ -29,6 +29,7 @@ export default function Programmers() {
   // The programmers list on the one hand, and the id of the featured programmer on the other.
 
   const [name, setName] = useState(null)
+  const [list, setList] = useState(listOfAwesome)
 
   const getNameOfFeatured = () => {
     // Leave this for last!
@@ -53,7 +54,7 @@ export default function Programmers() {
           /* Nasty bug! We should map over a slice of state, instead of 'listOfAwesome'.
           We might think: "it works, though!" But if the list of programmers is not state,
           we could never add or edit programmers in the future. The list would be a static thing." */
-          listOfAwesome.map(dev => (
+          list.map(dev => (
             <div className='programmer' key={dev.id}>
               {dev.name} <button onClick={() => { setName(dev.name) }}>Feature</button>
             </div> )
